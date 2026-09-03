@@ -1,7 +1,8 @@
 #pragma once
 
+
 bool initGame();
 
-bool updateGame(Font roboto, int scaledFontSize);
+bool updateGame();
 
 void closeGame();

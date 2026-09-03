@@ -76,7 +76,7 @@ int main(void)
 		ImGui::PopStyleColor(2);
 	#pragma endregion
 
-		if (!updateGame(roboto, scaledFontSize))
+		if (!updateGame())
 		{
 			CloseWindow();
 		}
