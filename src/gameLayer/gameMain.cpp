@@ -20,28 +20,13 @@ bool initGame()
 	assetManager.loadAll();
 
 
-	gameData.gameMap.create(30, 30);
+	gameData.gameMap.create(30, 10);
 
-	for (int y = 0; y < gameData.gameMap.h; y++)
-		for (int x = 0; x < gameData.gameMap.w; x++)
-		{
-			if (x % 4 == 0 && y % 4 == 0)
-			{
-				gameData.gameMap.getBlocUnsafe(x, y).type = Block::dirt;
-			}
-			else if (x % 4 == 0)
-			{
-				gameData.gameMap.getBlocUnsafe(x, y).type = Block::goldBlock;
-			}
-			else if (y & 4 == 0)
-			{
-				gameData.gameMap.getBlocUnsafe(x, y).type = Block::rubyBlock;
-			}
-			else
-			{
-				gameData.gameMap.getBlocUnsafe(x, y).type = Block::woodPlank;
-			}
-		}
+	gameData.gameMap.getBlocUnsafe(0, 0).type = Block::dirt;
+	gameData.gameMap.getBlocUnsafe(1, 1).type = Block::grassBlock;
+	gameData.gameMap.getBlocUnsafe(2, 2).type = Block::goldBlock;
+	gameData.gameMap.getBlocUnsafe(3, 3).type = Block::glass;
+	gameData.gameMap.getBlocUnsafe(4, 4).type = Block::platform;
 
 	gameData.camera.target = {0, 0};  // world-space center of view, we will use this as the camera position
 	gameData.camera.rotation = 0.0f;
@@ -89,10 +74,7 @@ bool updateGame()
 					0.0f, // rotation
 					WHITE // tint
 				);
-
 			}
-
-
 		}
 
 	EndMode2D();
